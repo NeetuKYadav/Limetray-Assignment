@@ -1,0 +1,4 @@
+{
+"proxy":"http://proxy22.iitd.ernet.in:3128",
+"https-proxy":"http://proxy22.iitd.ernet.in:3128"
+}
