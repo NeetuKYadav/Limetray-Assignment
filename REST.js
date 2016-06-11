@@ -11,7 +11,7 @@ REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
         res.json({"Message" : "Api entry point !"});
     });
     router.post("/users/login",function(req,res){
-        var query = "select count(id) as ct from user where username='"+req.body.username+"' and pwd='"+req.body.password+"'";
+        var query = "select count(id) as ct,id from user where username='"+req.body.username+"' and pwd='"+req.body.password+"'";
         console.log(query);
         var table = "[]"
         query = mysql.format(query,table);
@@ -39,7 +39,7 @@ REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
                     
                 }
                 else{
-                    res.json({"Error" : false, "Message" : "User Valid !","result":"true"});
+                    res.json({"Error" : false, "Message" : "User Valid !","result":"true","user_id":rows[0].id});
                 }
             }
         });
@@ -67,7 +67,7 @@ REST_ROUTER.prototype.handleRoutes = function(router,connection,md5) {
                 res.json({"Error" : true, "Message" : "Error executing MySQL query","Errormsg":err.toString()});
             }
             else{
-                res.json({"Error" : true, "Message" : "Your test has been started;","test_id":rows.insertId});
+                res.json({"Error" : false, "Message" : "Your answer has been recorded;","test_id":rows.insertId});
             }
         });
 

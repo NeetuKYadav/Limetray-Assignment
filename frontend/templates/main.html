@@ -1,0 +1,48 @@
+<nav class="navbar navbar-default" ng-controller="loginController">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Hi {{userData.username}}</a>
+    </div>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a ng-click="logout()"><span class="glyphicon glyphicon-log-in"  ng-click="logout()"></span>Logout</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- main screen -->
+
+<div class="jumbotron" ng-show="activeTestId==0">
+        <h1>Limetray Online test</h1>
+        <p class="lead">Join India's most trusted online test series for Pre-Engineering IIT JEE(JEE Main, JEE Advanced), Pre-Medical(AIPMT, AIIMS), CBSE Class 6th to 10th, NTSE, ...</p>
+        <p><a class="btn btn-lg btn-success" ng-click="startTest()" role="button">Start Test</a></p>
+      </div>
+
+
+<div class="jumbotron" ng-show="activeTestId!=0">
+<form ng-submit="submitAns()">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2">
+            <div class="row">
+              <div class="col-md-4"><h3></h3></div>
+              <div class="col-md-4"><h3></h3></div>
+              <div class="col-md-4"><h3>Correct: {{activeScoreRights}}</h3><br>
+              <h3>Wrong: {{activeScoreWrongs}}</h3>
+
+              </div>
+            </div>
+        <h3 class="lead">{{activeQuestion.question}}</h3>
+        <select ng-disabled="disableAns==1" class="form-control" ng-model="answerOption" ng-options="option.id as option.option_text for option in activeQuestionOptions" required>
+                                <option value="">Please select a answer</option>
+                            </select><br>
+        <div class="row">
+              <div class="col-md-4"><button class="btn btn-success "  ng-disabled="disableAns==1">Submit</button></div>
+              <div class="col-md-4">{{answer}}</div>
+              <div class="col-md-4">
+                <button class="btn btn-warning" type="button" ng-click="prev()" ng-disabled="questions.length==0 || activeQuestionIndex==0">Prev.</button>
+                 <button class="btn btn-warning" type="button" ng-click="next()" ng-disabled="questions.length==0 || activeQuestionIndex==questions.length-1">Next.</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </form>
+      </div>
