@@ -6,6 +6,10 @@ testApp.config(['$routeProvider',
                 templateUrl: 'templates/main.html',
                 controller: 'mainController'
             }).
+            when('/', {
+                templateUrl: 'templates/main.html',
+                controller: 'mainController'
+            }).
             when('/login', {
                 templateUrl: 'templates/login.html',
                 controller: 'loginController'
