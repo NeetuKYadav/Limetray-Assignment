@@ -1,20 +1,5 @@
 testApp.controller('loginController', ['$scope', '$location', '$cookies', '$window', '$http', 'TestService',
     function($scope, $location, $cookies, $window, $http, TestService) {
-        $scope.activeROute = 'data';
-        $scope.activeDisplay = 'rawMaterial';
-        $scope.selectedItemTracker = [];
-        $scope.selectedCustomUnitTracker =[];
-        $scope.selectedCustomUnits=[];
-        $scope.selectedItems = {};
-        $scope.allRawMaterials = [];
-        $scope.menuItems = [];
-        $scope.allMenuItems = [];
-        $scope.customUnits = [];
-        $scope.initTime = 0;
-        $scope.pendingHttps = 0;
-        $scope.vendors = [];
-        $scope.newVendorData = {};
-        $scope.initTime = 0;
         $scope.userData = TestService.getUserData();
         /*ends*/
         var urlParams = $location.search();
@@ -85,22 +70,7 @@ testApp.controller('loginController', ['$scope', '$location', '$cookies', '$wind
 
 testApp.controller('mainController', ['$scope', '$location', '$cookies', '$window', '$http', 'TestService',
     function($scope, $location, $cookies, $window, $http, TestService) {
-        $scope.activeROute = 'data';
         $scope.userData = TestService.getUserData();
-        $scope.activeDisplay = 'rawMaterial';
-        $scope.selectedItemTracker = [];
-        $scope.selectedCustomUnitTracker =[];
-        $scope.selectedCustomUnits=[];
-        $scope.selectedItems = {};
-        $scope.allRawMaterials = [];
-        $scope.menuItems = [];
-        $scope.allMenuItems = [];
-        $scope.customUnits = [];
-        $scope.initTime = 0;
-        $scope.pendingHttps = 0;
-        $scope.vendors = [];
-        $scope.newVendorData = {};
-        $scope.initTime = 0;
         $scope.activeTestId=0;
         $scope.activeQuestionOptions=[];
         $scope.activeScoreRights=0;
